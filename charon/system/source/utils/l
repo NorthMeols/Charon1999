@@ -1,0 +1,265 @@
+Compiled from "UtString.java"
+public class utils.UtString {
+  public utils.UtString();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static boolean stringOk(java.lang.String, int, int);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method java/lang/String.length:()I
+       4: iload_2
+       5: if_icmpgt     12
+       8: iconst_1
+       9: goto          13
+      12: iconst_0
+      13: ireturn
+
+  public static java.lang.String urlEncode2(java.lang.String);
+    Code:
+       0: new           #3                  // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #4                  // Method java/lang/StringBuilder."<init>":()V
+       7: astore_1
+       8: iconst_0
+       9: istore_2
+      10: iload_2
+      11: aload_0
+      12: invokevirtual #2                  // Method java/lang/String.length:()I
+      15: if_icmpge     102
+      18: aload_0
+      19: iload_2
+      20: invokevirtual #5                  // Method java/lang/String.charAt:(I)C
+      23: lookupswitch  { // 3
+                    32: 56
+                    58: 66
+                    64: 76
+               default: 86
+          }
+      56: aload_1
+      57: ldc           #6                  // String %22
+      59: invokevirtual #7                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      62: pop
+      63: goto          96
+      66: aload_1
+      67: ldc           #8                  // String %3A
+      69: invokevirtual #7                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      72: pop
+      73: goto          96
+      76: aload_1
+      77: ldc           #9                  // String %40
+      79: invokevirtual #7                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      82: pop
+      83: goto          96
+      86: aload_1
+      87: aload_0
+      88: iload_2
+      89: invokevirtual #5                  // Method java/lang/String.charAt:(I)C
+      92: invokevirtual #10                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      95: pop
+      96: iinc          2, 1
+      99: goto          10
+     102: new           #11                 // class java/lang/String
+     105: dup
+     106: aload_1
+     107: invokespecial #12                 // Method java/lang/String."<init>":(Ljava/lang/StringBuilder;)V
+     110: areturn
+
+  public static java.lang.String urlEncode(java.lang.String);
+    Code:
+       0: aload_0
+       1: areturn
+
+  public static java.lang.String millsToDate(long);
+    Code:
+       0: new           #13                 // class java/util/Date
+       3: dup
+       4: lload_0
+       5: invokespecial #14                 // Method java/util/Date."<init>":(J)V
+       8: astore_2
+       9: iconst_2
+      10: iconst_2
+      11: getstatic     #16                 // Field java/util/Locale.UK:Ljava/util/Locale;
+      14: invokestatic  #17                 // Method java/text/DateFormat.getDateTimeInstance:(IILjava/util/Locale;)Ljava/text/DateFormat;
+      17: astore_3
+      18: aload_3
+      19: aload_2
+      20: invokevirtual #18                 // Method java/text/DateFormat.format:(Ljava/util/Date;)Ljava/lang/String;
+      23: areturn
+
+  public static java.lang.String asMills(int);
+    Code:
+       0: iload_0
+       1: bipush        9
+       3: if_icmpgt     13
+       6: iload_0
+       7: invokedynamic #21,  0             // InvokeDynamic #2:makeConcatWithConstants:(I)Ljava/lang/String;
+      12: areturn
+      13: iload_0
+      14: bipush        99
+      16: if_icmpgt     26
+      19: iload_0
+      20: invokedynamic #19,  0             // InvokeDynamic #0:makeConcatWithConstants:(I)Ljava/lang/String;
+      25: areturn
+      26: iload_0
+      27: invokedynamic #20,  0             // InvokeDynamic #1:makeConcatWithConstants:(I)Ljava/lang/String;
+      32: areturn
+
+  public static java.lang.String timeNow();
+    Code:
+       0: new           #13                 // class java/util/Date
+       3: dup
+       4: invokespecial #22                 // Method java/util/Date."<init>":()V
+       7: astore_0
+       8: new           #23                 // class java/util/GregorianCalendar
+      11: dup
+      12: invokespecial #24                 // Method java/util/GregorianCalendar."<init>":()V
+      15: astore_1
+      16: aload_1
+      17: aload_0
+      18: invokevirtual #25                 // Method java/util/Calendar.setTime:(Ljava/util/Date;)V
+      21: aload_1
+      22: iconst_5
+      23: invokevirtual #27                 // Method java/util/Calendar.get:(I)I
+      26: invokestatic  #28                 // Method m2d:(I)Ljava/lang/String;
+      29: aload_1
+      30: iconst_2
+      31: invokevirtual #27                 // Method java/util/Calendar.get:(I)I
+      34: iconst_1
+      35: iadd
+      36: invokestatic  #28                 // Method m2d:(I)Ljava/lang/String;
+      39: aload_1
+      40: iconst_1
+      41: invokevirtual #27                 // Method java/util/Calendar.get:(I)I
+      44: aload_1
+      45: bipush        11
+      47: invokevirtual #27                 // Method java/util/Calendar.get:(I)I
+      50: invokestatic  #28                 // Method m2d:(I)Ljava/lang/String;
+      53: aload_1
+      54: bipush        12
+      56: invokevirtual #27                 // Method java/util/Calendar.get:(I)I
+      59: invokestatic  #28                 // Method m2d:(I)Ljava/lang/String;
+      62: aload_1
+      63: bipush        13
+      65: invokevirtual #27                 // Method java/util/Calendar.get:(I)I
+      68: invokestatic  #28                 // Method m2d:(I)Ljava/lang/String;
+      71: invokedynamic #29,  0             // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      76: areturn
+
+  public static java.lang.String timeNowRev();
+    Code:
+       0: new           #13                 // class java/util/Date
+       3: dup
+       4: invokespecial #22                 // Method java/util/Date."<init>":()V
+       7: astore_0
+       8: aload_0
+       9: invokevirtual #30                 // Method java/util/Date.getTime:()J
+      12: lstore_1
+      13: lload_1
+      14: ldc2_w        #31                 // long 1000l
+      17: lrem
+      18: l2i
+      19: istore_3
+      20: new           #23                 // class java/util/GregorianCalendar
+      23: dup
+      24: invokespecial #24                 // Method java/util/GregorianCalendar."<init>":()V
+      27: astore        4
+      29: aload         4
+      31: aload_0
+      32: invokevirtual #25                 // Method java/util/Calendar.setTime:(Ljava/util/Date;)V
+      35: new           #3                  // class java/lang/StringBuilder
+      38: dup
+      39: bipush        50
+      41: invokespecial #33                 // Method java/lang/StringBuilder."<init>":(I)V
+      44: astore        5
+      46: aload         5
+      48: aload         4
+      50: iconst_1
+      51: invokevirtual #27                 // Method java/util/Calendar.get:(I)I
+      54: invokevirtual #34                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      57: pop
+      58: aload         5
+      60: bipush        95
+      62: invokevirtual #10                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      65: pop
+      66: aload         5
+      68: aload         4
+      70: iconst_2
+      71: invokevirtual #27                 // Method java/util/Calendar.get:(I)I
+      74: iconst_1
+      75: iadd
+      76: invokestatic  #28                 // Method m2d:(I)Ljava/lang/String;
+      79: invokevirtual #7                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      82: pop
+      83: aload         5
+      85: bipush        95
+      87: invokevirtual #10                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      90: pop
+      91: aload         5
+      93: aload         4
+      95: iconst_5
+      96: invokevirtual #27                 // Method java/util/Calendar.get:(I)I
+      99: invokestatic  #28                 // Method m2d:(I)Ljava/lang/String;
+     102: invokevirtual #7                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     105: pop
+     106: aload         5
+     108: bipush        95
+     110: invokevirtual #10                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+     113: pop
+     114: aload         5
+     116: aload         4
+     118: bipush        11
+     120: invokevirtual #27                 // Method java/util/Calendar.get:(I)I
+     123: invokestatic  #28                 // Method m2d:(I)Ljava/lang/String;
+     126: invokevirtual #7                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     129: pop
+     130: aload         5
+     132: bipush        95
+     134: invokevirtual #10                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+     137: pop
+     138: aload         5
+     140: aload         4
+     142: bipush        12
+     144: invokevirtual #27                 // Method java/util/Calendar.get:(I)I
+     147: invokestatic  #28                 // Method m2d:(I)Ljava/lang/String;
+     150: invokevirtual #7                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     153: pop
+     154: aload         5
+     156: bipush        95
+     158: invokevirtual #10                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+     161: pop
+     162: aload         5
+     164: aload         4
+     166: bipush        13
+     168: invokevirtual #27                 // Method java/util/Calendar.get:(I)I
+     171: invokestatic  #28                 // Method m2d:(I)Ljava/lang/String;
+     174: invokevirtual #7                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     177: pop
+     178: aload         5
+     180: bipush        95
+     182: invokevirtual #10                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+     185: pop
+     186: aload         5
+     188: iload_3
+     189: invokestatic  #35                 // Method asMills:(I)Ljava/lang/String;
+     192: invokevirtual #7                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     195: pop
+     196: new           #11                 // class java/lang/String
+     199: dup
+     200: aload         5
+     202: invokespecial #12                 // Method java/lang/String."<init>":(Ljava/lang/StringBuilder;)V
+     205: areturn
+
+  public static java.lang.String getTimeInMills();
+    Code:
+       0: new           #13                 // class java/util/Date
+       3: dup
+       4: invokespecial #22                 // Method java/util/Date."<init>":()V
+       7: astore_0
+       8: aload_0
+       9: invokevirtual #30                 // Method java/util/Date.getTime:()J
+      12: invokedynamic #36,  0             // InvokeDynamic #1:makeConcatWithConstants:(J)Ljava/lang/String;
+      17: areturn
+}

@@ -1,0 +1,8 @@
+#
+# hosts.allow   This file describes the names of the hosts which are
+#               allowed to use the local INET services, as decided
+#               by the '/usr/sbin/tcpd' server.
+#
+
+ALL:    127.0.0.1               # Local host
+ALL:    193.62.183.             # all in staff subnet

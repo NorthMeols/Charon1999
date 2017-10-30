@@ -1,0 +1,3 @@
+login_ldap4.sh		// Real validation
+login_ldap5.sh		// Real validation (Encryption)
+login_fake.sh		// No password

@@ -1,0 +1,85 @@
+-----------
+How to Read
+-----------
+
+Award
+BCS    BSc Business Computer Systems
+BCS-M  MComp Business Computer Systems
+CS     BSc Computer Science
+CS-M   MComp Computer Science
+CSG    BSc Computer Science (Games)
+DMD    BSc Digital Media Development
+DM     BSc Digital Media
+SE     BSc Software Engineering
+SE-M   MComp Software Engineering
+IC     BSc Internet Computing
+DGP    BSc Digital Games Production
+CSN    BSc Computer Systems with Networking
+C+B    BSc Computing + Business
+C+E    BSc Computing + Education
+ASS    BA Applied Social Science
+
+?      Not know, not in my (not current) copy of base.db
+Number Not yet mapped award code to description
+
+-------------------------------------------
+Summary information by award for the cohort
+-------------------------------------------
+
+Cohort Summary
+
+ciXXX - Number completing each exercise by award
+        1.1 1.2 1.3 1.4 1.5
+---------------------------
+CS    |  46  43  16  11  10
+BCS   |  12  11   3   0   0
+---------------------------
+Worked|  58  54  19  11  10
+Late W|   0   1   0   0   0
+Attemp|   0   1  10   4   1
+Engage|  58  56  29  15  11
+---------------------------
+
+Worked           Students who have completed this program and it works
+Late Worked      Students who have completed this program worked but it was late
+Attempted        Students who have attempted this program but is does not work
+Engaged          worked + attempted + Late worked
+
+---------------------------------------------------------------------------------
+
+Questions # completed :     0    1    2    3    4    5
+# completed           :     0   10   62    5    1   14
+As a percentage       :   0.0 10.9 67.4  5.4  1.1 15.2
+Cumulative percentage :   100  100 89.1 21.7 16.3 15.2
+
+Expansion
+Question # completed  Heading, the number of questions successfully completed by the overall student population. 
+                      Early on some students will have 0 questions completed as they have not yet submitted
+                      a working program. 
+# Completed           The number of questions completed by individual students.
+                      In the above list 10 students have completed 1 question, 62 students 2 questions
+As a percentage       As a percentage of the known students (Students who have completed or attempted a question)
+Cumulative percentage In the above list 100% of known students have completed 0 or more questions.
+                      21.7% of the known students have completed 3 or more questions.
+
+-----------------------------------------
+Student individual reports for the cohort
+-----------------------------------------
+
+0Student 0000                    C  L  C40 1.1 1.2 1.3 1.4 1.5
+Other_A_N___ano             CS   5  1  1   54  OK  OK  OK  OK
+
+Column heading
+Student       The students name followed by their login id followed by the course they take.
+              if ano_______xxx then student registered at University, but login name not in my (not current) copy of base.db
+C             The number of exercises successfully completed includes those submitted late.
+L             The number of exercises that were submitted late
+C40           The number of exercises that were submitted late, but within 14 day period that
+              would qualify for a maximum mark of 40%
+1.1           Details about exercise 1.1
+                 .        Not attempted
+                 OK       Successfully completed
+                 a        Attempted but did not work
+                 e        Has an extension but not attempted
+                 Number   The number of days late (rounded up)
+                          So 1 second late is counted as 1 day, 1 day and 1 second late is counted as 2 days

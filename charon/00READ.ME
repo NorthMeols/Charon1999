@@ -1,0 +1,124 @@
+----------------------------------------------------------------------------
+
+There must be a user: charon
+	Should not be able to login as charon
+	created when you run setup.sh
+	Mike Smith 2017 Charon system created 1999-2017
+
+----------------------------------------------------------------------------
+
+Install the charon system etc as root
+
+	Install the java jdk 
+		[] Create the directory /opt/java
+		[] Get the java system from the Oracle website.
+		[] Use the  Linux-x64 version in a .gz file [Not .rpm]
+		[]  put the .gz file in to the directory /opt/java
+		[] In the directory (/opt/java) install (unpack) the jdk
+		#  tar xvfz jdk1.x.0.xx
+		[] Create a link called current in /opt/java to jdk1.x.0.xxx
+		# ln -s /opt/java/jdk1.x.0.xx current
+
+        Create the following directory if it does no exist and change to it
+		# mkdir /opt/charon
+		# cd /opt/charon 
+
+	Now unpack the charon system in to /opt/charon
+		[] Copy the file charon.7z to /opt/charon
+		[] Now need to install 7zip
+		# apt-get install p7zip-full
+		[] Now unpack
+		# 7z x charon.7z
+		# tar xvf charon.tar 
+
+	Now run the shell script pre_setup.sh in the directory /opt/charon
+		# bash pre_set-up.sh
+		[] You will need to answer Y to the request to install software
+		[]  software required by the charon system.
+
+		[] Now reboot the system
+		[] As /etc/environment & /etc/rc.local will have been changed
+		# reboot
+		
+
+	Now run the shell script set_up.sh in the directory /opt/charon
+		# bash set-up.sh
+
+	this will:
+		[] compile the charon system
+		[] Set up files at /var/www/ for the client interface
+		[] copy the java & g++ environment to the sandbox
+
+	You must now
+		[] set up the authentication system for users 
+		[] This should be using LDAP but do check
+		[]  As would be disastrous if not
+		# cd /opt/charon/jcl
+		# ln -s login_ldap5.sh login.sh 
+
+		[] this links login.sh to the 
+ 		[] appropriate authentication mechanism
+		[] login_ldap5.sh is the current method used
+		[]  Not good to pass parameters to it by command line
+		[]  However normal users will not be able to see processes that do
+		[]  not belong to them (How /proc is mounted)
+		[] Remember login_fake.sh is for testing so no authentication
+
+	start the charon system by rebooting the system.
+		[]  Remember /etc/rc.local is changed by pre_set-up.sh
+	
+		[] To manually run (the charon server) for testing etc.
+		[] As root run
+		# sh server.sh
+		[] However, output is not redirected to log,txt
+		[] So reboot when happy with system, to get the correct working of the server
+
+	You will also need to setup the auto backup
+	The file transfer.sh (See below) will need to be edited
+		[] NOW done by the set-up script.sh file
+		[] In the file /etc/crontab
+		[] Add the following line (At the end)
+		55 *    * * *   root    bash /opt/charon/system/results/transfer.sh >> ~charon/log.txt 2>&1
+		[] Which will run at 55 mins past each hour the stats and backup script
+		[] Make sure directories exist
+		[] Make sure can be backed up to a remote machine as well
+		[] See script /opt/charon/system/results/transfer.sh 
+		[] You must check log file /opt/charon/log.txt
+
+	Things to do
+	/etc/charon/motd.txt  			:: Make appropriate
+	/etc/charon.templates/ci101/motd.txt 	:: Make appropriate
+
+	/opt/charon/system/results/base.db	:: Needs to contain all students userid and names
+
+	Test the installation
+
+
+-----------------------------------------------------------------------------
+
+charon should now be running
+
+Test the system from another machine.
+remember, The charon machine must have ip 193.62.183.45
+
+
+try the exercises this is a good indicator that the charon system is 
+working/ not-working
+
+Important
+Remember the user charon is not accessible
+
+Check how users are progressing, keen students will find/ be impacted by any errors first
+
+
+----------------------------------------------------------------------------
+synaptic package manager
+	apt-get install synaptic
+gparted
+	apt-get install gparted
+mount volumes
+	apt-get install gnome-disk-utility
+
+----------------------------------------------------------------------------
+END END
+----------------------------------------------------------------------------

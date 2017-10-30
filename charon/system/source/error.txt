@@ -1,0 +1,13 @@
+[C] Please wait for processing
+[C] Elapsed time to process request 0.001 seconds
+[C] Connection closed
+[S] SYSTEM FAILURE You have been Logged out
+    Can you mail all of this text to mas@brighton.ac.uk
+    java.lang.String cannot be cast to java.lang.Long [
+    Message.java              Line    48   Message.<init>
+    jc_server.java            Line   182   TConnection.run
+    ]
+
+[C] You need to logon to the server
+[C] You need to logon to the server
+
